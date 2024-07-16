@@ -9,3 +9,17 @@ set expandtab      converts tabs to spaces
 set number          show line numbers
 filetype indent on    will auto indent for the type of file ".py"
 set autoindent"      auto indents code blocks
+
+
+
+DAY 2
+Python starts conting at 0 (0 index notation)
+a tuple cant be edited
+    tuple(example) == ['h', 'e', 'a', 't']
+    letters[0] = 'b'
+    no no no
+
+lists can be changed
+    list(example) == ('h', 'e', 'a', 't')
+    letters[0] = 'b'
+    ('b', 'e', 'a', 't')
