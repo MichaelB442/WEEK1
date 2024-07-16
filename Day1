@@ -41,7 +41,7 @@ Python starts counting at 0 (0 index notation)
         '{} have you met {}'.format(name[0], name[1])
 
 
-    .split example 
+    split example 
         email = 'someguy@gmail.com'
         email = email.replace('@','.')
         email = email.split('.')
