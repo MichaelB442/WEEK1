@@ -51,3 +51,35 @@ Python starts counting at 0 (0 index notation)
         email2 = email.split('@')
         email3 = '.'.join(email2)
         print(email3.split('.'))
+
+    if example
+        #!/usr/bin/env python3
+        print('Hello enter a number: ')
+        x = float(input())
+        if x % 3 != 0 and x % 5 != 0:
+            print(x)
+        elif x % 3 == 0 and x % 5 == 0:
+            print('fizzbuzz')
+        elif x % 3 == 0:
+            print('rizz')
+        elif x % 5 == 0:
+            print('buzz')
+        else:
+            print('so wrong bro, how are you so wrong')
+
+
+
+    def is used to define a function
+    
+
+
+
+
+
+
+
+
+
+
+
+
