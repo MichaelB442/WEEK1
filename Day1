@@ -13,13 +13,30 @@ set autoindent"      auto indents code blocks
 
 
 DAY 2
-Python starts conting at 0 (0 index notation)
-a tuple cant be edited
-    tuple(example) == ['h', 'e', 'a', 't']
-    letters[0] = 'b'
-    no no no
+Python starts counting at 0 (0 index notation)
+    a tuple cant be edited
+        tuple(example) == ['h', 'e', 'a', 't']
+        letters[0] = 'b'
+        no no no
 
-lists can be changed
-    list(example) == ('h', 'e', 'a', 't')
-    letters[0] = 'b'
-    ('b', 'e', 'a', 't')
+    lists can be changed
+        list(example) == ('h', 'e', 'a', 't')
+        letters[0] = 'b'
+        ('b', 'e', 'a', 't')
+
+
+    adding on to list
+        hello.append('hola')
+        adds hola to list
+
+
+    formating
+        '{} how are you'.format(hello[0])
+        'hola how are you'
+    can use multiple brackets to take multiple items from list
+        '{} have you met {}'.format(name[0], name[1])
+    .split example 
+        email = 'someguy@gmail.com'
+        email = email.replace('@','.')
+        email = email.split('.')
+        print(email)
