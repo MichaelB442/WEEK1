@@ -1,3 +1,7 @@
+WINDOWS
+10.50.32.44
+LINUX
+10.50.22.124
 
 cybbh python for handbooks
 SSH to linux device and run terminator for fancy terminal
@@ -35,8 +39,15 @@ Python starts counting at 0 (0 index notation)
         'hola how are you'
     can use multiple brackets to take multiple items from list
         '{} have you met {}'.format(name[0], name[1])
+
+
     .split example 
         email = 'someguy@gmail.com'
         email = email.replace('@','.')
         email = email.split('.')
         print(email)
+        OR
+        email = 'someguy@gmail.com'
+        email2 = email.split('@')
+        email3 = '.'.join(email2)
+        print(email3.split('.'))
