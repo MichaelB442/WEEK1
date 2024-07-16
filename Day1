@@ -66,10 +66,18 @@ Python starts counting at 0 (0 index notation)
             print('buzz')
         else:
             print('so wrong bro, how are you so wrong')
+        .upper makes all characters upper case
+        .lower makes all characters lower case
 
 
+    break will end loop
+    continue will go to top of loop
+    return returns something, like an error code
+    pass goes to next instruction
 
     def is used to define a function
+
+
     
 
 
