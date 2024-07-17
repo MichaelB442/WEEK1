@@ -77,9 +77,44 @@ Python starts counting at 0 (0 index notation)
 
     def is used to define a function
 
+    DAY 3
+        def guess_number(guess):
+            x = 1
+            while x == 1:
+                print('Guess a Number')
+                guess = int(input())
+                if guess == 68:
+                    print('Good job G')
+                    x = 2
+                    break
+                elif guess > 68:
+                    print ('Too high')
+                    continue
+                elif guess < 68:
+                    print ('Too Low')
+                    continue
+                else:
+                    print('Enter a number')
+        Range 
+        list(range(10)) - [1,2,3,4,5,6,7,8,9]
+            (range(5,10) - 5,6,7,8,9
+            (range(5,10) - 9,8,7,6,5
 
-    
-
+        getting average 
+            def average(nums):
+                print(sum(nums)/len(nums))    sum adds together, len is how many numbers
+        slicing
+            nums[start:stop:increment]
+        
+        dictionary {}
+            romanNum = {'I':1, 'V':10, 'X':10, 'L':50}
+        how to create/write files
+            with open("test.txt", 'w') as fp:
+                pass
+                fp.write('first line\n') 
+        args and quargs(geeks for geeks) ignore the star-tuple, 2 stars dictionary 
+            
+        
 
 
 
