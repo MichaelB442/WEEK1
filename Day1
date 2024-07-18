@@ -1,3 +1,8 @@
+
+
+
+ 4 6 2
+
 WINDOWS
 10.50.32.44
 LINUX
@@ -113,8 +118,81 @@ Python starts counting at 0 (0 index notation)
                 pass
                 fp.write('first line\n') 
         args and quargs(geeks for geeks) ignore the star-tuple, 2 stars dictionary 
-            
-        
+
+        PRACTICE TEST
+TLO: 112-SCRPY002, LSA 3,4
+Given the floatstr, which is a comma separated string of
+floats, return a list with each of the floats in the
+argument as elements in the list.
+
+        lst = []
+        for i in floatstr.split():
+        lst.append(float(i))
+        return lst
+
+TLO: 112-SCRPY006, LSA 3
+TLO: 112-SCRPY007, LSA 4
+Given the variable length argument list, return the average
+of all the arguments as a float
+    print (args) and the type
+
+        total = 0
+        for i in args:
+            total += i
+        return total/len(args)
+        OR
+        return sum(args)/len(args)
+
+
+ TLO: 112-SCRPY004, LSA 3
+ Given a list (lst) and a number of items (n), return a new 
+ list containing the last n entries in lst.
+
+
+         w = -(n)
+         wow = lst[w::]
+         return(wow)
+
+
+TLO: 112-SCRPY004, LSA 1,2
+TLO: 112-SCRPY006, LSA 3
+Given an input string, return a list containing the ordinal numbers of 
+each character in the string in the order found in the input string. 
+
+
+        lst = []
+        for i in string:
+            lst.append(ord(i))
+        return lst
+
+TLO: 112-SCRPY002, LSA 1,3
+TLO: 112-SCRPY004, LSA 2
+Given an input string, return a tuple with each element in the tuple
+containing a single word from the input string in order.isty = floatstr.split()
+
+
+        step = strng.split()
+        step = tuple(step)
+        return(step)
+
+TLO: 112-SCRPY007, LSA 2
+Given a dictionary (catalog) whose keys are product names and values are product
+prices per unit and a list of tuples (order) of product names and quantities,
+compute and return the total value of the order.
+
+
+        total = 0
+        for i in order:
+            total += catalog[i[0]] * i[1]
+        return total
+
+
+Given a filename, open the file and return the length of the first line 
+in the file excluding the line terminator.
+
+
+        with open(filename) as fp:
+            return len(fp.readline()) -1
 
 
 
