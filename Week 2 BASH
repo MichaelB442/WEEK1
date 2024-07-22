@@ -1,6 +1,6 @@
 linux handbook 
-
-
+phoenixap.com//kb/bash-printf -- printf
+baeldung.com/linux/bash-single-vs-double-brackets
 
 
 
@@ -8,7 +8,7 @@ touch to make a file
 touch -t alter the time 
 chmod 777
 ls -1 shows just the names of all the files
-Command (find)
+  Command (find / -option)
 find -name hi.txt)) finds file by name
 find -iname ))) finds file by name regardless of capitalization 
 find -inum ))) finds file based off of inode number
@@ -22,6 +22,23 @@ find -atime 3) anything accessed in the last three days
 find -ctime 3) changed in last three days
 find -mtime 3) modified last three days
 find -amin 180) accessed last three hours
-each time has a min equivelant ()time is days ()min is minutes
-sudo !! runs previously used command as root
+  each ()time has a min equivelant ()time is days ()min is minutes
+  sudo !! runs previously used command as root
 find -exec -- use linux handbook to understand further
+find -perm /4000 -uid 0 -ls 2>/dev/null
+  2>/dev/null get rid of the things that dont fit the search
+  -printf is like .format
+find -perm /4000 -uid 0 -ls 2>/dev/null -printf "%i %f\n"
+  %i is the inode and %f is the file \n is new line
+
+  Command (grep)
+grep -E//egrep is extended grep 
+grep -i case insensitive
+grep -n shows lines
+grep -v inverts search
+  cat fake1passwd.txt | grep /bin/bash
+accounts with that directory
+  egrep "student|root|bob" fake1passwd.txt
+shows those accounts, bob doesnt exist
+  cat  fake1passwd.txt | grep -v /bin/bash
+shows everything without bin/bash
