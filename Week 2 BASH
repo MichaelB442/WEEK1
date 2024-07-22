@@ -27,7 +27,7 @@ find -amin 180) accessed last three hours
 find -exec -- use linux handbook to understand further
 find -perm /4000 -uid 0 -ls 2>/dev/null
   2>/dev/null get rid of the things that dont fit the search
-  -printf is like .format
+  -printf is like .format(choose for example to only show the name)
 find -perm /4000 -uid 0 -ls 2>/dev/null -printf "%i %f\n"
   %i is the inode and %f is the file \n is new line
 
@@ -45,3 +45,26 @@ shows everything without bin/bash
 
 kill) kills by PID
 pkill)kills by name
+
+cat fake1passwd.txt | cut -d: -f1 -s
+                      cut -d(delimeter) : (colon is delemiter) -f1(field one is being cut)
+                              -f1- will print everything
+                                  -s(strict will not print anything in the cut)
+& and(background)
+&& logical and
+|| logical or
+| break
+! not
+"" look at first
+> create/overrite
+>> create/append
+
+
+
+
+
+
+
+
+
+
