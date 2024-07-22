@@ -1,0 +1,27 @@
+linux handbook 
+
+
+
+
+
+touch to make a file
+touch -t alter the time 
+chmod 777
+ls -1 shows just the names of all the files
+Command (find)
+find -name hi.txt)) finds file by name
+find -iname ))) finds file by name regardless of capitalization 
+find -inum ))) finds file based off of inode number
+find -size ))) finds files based on size
+find -gid ))) finds files based on group id
+find -uid ))) finds files based on used id
+find -maxdepth ))) defines maximum directories deep to go
+find -type d ))) directories) -f -- files) -p -- name pipes
+find -name \*.txt
+find -atime 3) anything accessed in the last three days
+find -ctime 3) changed in last three days
+find -mtime 3) modified last three days
+find -amin 180) accessed last three hours
+each time has a min equivelant ()time is days ()min is minutes
+sudo !! runs previously used command as root
+find -exec -- use linux handbook to understand further
