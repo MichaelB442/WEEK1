@@ -42,3 +42,6 @@ accounts with that directory
 shows those accounts, bob doesnt exist
   cat  fake1passwd.txt | grep -v /bin/bash
 shows everything without bin/bash
+
+kill) kills by PID
+pkill)kills by name
