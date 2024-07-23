@@ -63,6 +63,7 @@ awk -F: '($7 == "/bin/bash"){print $1, $6, $3}' if field seven has this string p
 
 
 Command (sort)
+
 ****pipe another command into sort. sort is dumb and needs another command giving it input****
 sort) ascii order
 sort -r) is reversed
@@ -71,6 +72,21 @@ sort -nr) reverse numeric
 sort -t) tells sort the file is formatted wih columns
 sort -t : -k 1,4) sort by columns 1 and 4
 sort -t : -k 1,4 | uniq) sorts for inuque could also just use -u instead of pipe into uniq 
+
+
+Command(sed)
+
+            chicken->hamburger
+sed -e 's/chicken/hamburger/g' -e 's/pepperoni/sausage/' pizza.txt )) peperoni only changes the first instance because it doesnt have g
+        start               globally      peperoni-> sausage
+sed -e '/chicken/d' pizza.txt )) deletes every line with chicken(entire line)
+
+
+command substitution
+nano to make a script. use #! line and enter code you want easy access to.
+
+Making an alias
+alias (name) = command
 
 
 
@@ -95,9 +111,7 @@ finding with inode, remove unwanted
 
 
 
-(25[0-5])|(2[0-4][0-9])|(1[0-9][0-9])|([1-9][0-9])
 
-(
 
 
 
