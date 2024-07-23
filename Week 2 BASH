@@ -1,8 +1,8 @@
 linux handbook 
 phoenixap.com//kb/bash-printf -- printf
 baeldung.com/linux/bash-single-vs-double-brackets
-
-
+10.50.26.116
+regex101
 
 touch to make a file
 touch -t alter the time 
@@ -30,6 +30,7 @@ find -perm /4000 -uid 0 -ls 2>/dev/null
   -printf is like .format(choose for example to only show the name)
 find -perm /4000 -uid 0 -ls 2>/dev/null -printf "%i %f\n"
   %i is the inode and %f is the file \n is new line
+find -empty) looks for any files or directories that are empty
 
   Command (grep)
 grep -E//egrep is extended grep 
@@ -48,8 +49,33 @@ pkill)kills by name
 
 cat fake1passwd.txt | cut -d: -f1 -s
                       cut -d(delimeter) : (colon is delemiter) -f1(field one is being cut)
-                              -f1- will print everything
+                              -f1- will print everything after cut
                                   -s(strict will not print anything in the cut)
+
+Command(awk)
+
+awk -F: '{print $1}'  -- print first field  
+awk -F: '{print $NF}'  --  last field of everyline
+awk -F: '{$3 == 0} {print $1}' if field 3 is equal to 0 print field 1
+awk -F: 'BEGIN {OFS = "@"} {print $1, $3}' output field seperator is @ print fields 1 and 3
+awk -F: '($3 >= 150){print $0}' if field 3 greater than or equal to 150 print (whole line?)
+awk -F: '($7 == "/bin/bash"){print $1, $6, $3}' if field seven has this string print these fields
+
+
+Command (sort)
+****pipe another command into sort. sort is dumb and needs another command giving it input****
+sort) ascii order
+sort -r) is reversed
+sort -n) sorts numericallly
+sort -nr) reverse numeric
+sort -t) tells sort the file is formatted wih columns
+sort -t : -k 1,4) sort by columns 1 and 4
+sort -t : -k 1,4 | uniq) sorts for inuque could also just use -u instead of pipe into uniq 
+
+
+
+
+
 & and(background)
 && logical and
 || logical or
@@ -61,8 +87,17 @@ cat fake1passwd.txt | cut -d: -f1 -s
 
 
 
+examples
+find files with .txt but no ~
+  find $HOME/1123/ -name *.txt ! -name *~* -exec cp {} $HOME/CUT
+finding with inode, remove unwanted
+  find / -inum 4026532575 -printf "%f\n" 2>/dev/null
 
 
+
+(25[0-5])|(2[0-4][0-9])|(1[0-9][0-9])|([1-9][0-9])
+
+(
 
 
 
