@@ -25,6 +25,8 @@ find -amin 180) accessed last three hours
   each ()time has a min equivelant ()time is days ()min is minutes
   sudo !! runs previously used command as root
 find -exec -- use linux handbook to understand further
+  \; for each result the command is executed
+  + will execute once
 find -perm /4000 -uid 0 -ls 2>/dev/null
   2>/dev/null get rid of the things that dont fit the search
   -printf is like .format(choose for example to only show the name)
@@ -72,6 +74,7 @@ sort -nr) reverse numeric
 sort -t) tells sort the file is formatted wih columns
 sort -t : -k 1,4) sort by columns 1 and 4
 sort -t : -k 1,4 | uniq) sorts for inuque could also just use -u instead of pipe into uniq 
+                   uniq -c counts how many of each string is repeated
 
 
 Command(sed)
@@ -80,6 +83,21 @@ Command(sed)
 sed -e 's/chicken/hamburger/g' -e 's/pepperoni/sausage/' pizza.txt )) peperoni only changes the first instance because it doesnt have g
         start               globally      peperoni-> sausage
 sed -e '/chicken/d' pizza.txt )) deletes every line with chicken(entire line)
+
+tar -czf compresses information
+
+#!/bin/bash
+contents = (cat simple.txt)
+if [[$contents == "tacos" ]]; then
+    echo "are good on tuesdays"
+elif [[ $contents == "costco is amazing" ]]; then
+    echo "and will save you money"
+elif [[ $contents == "chicken bake" ]]; then
+    echo "tasty but will make you fail height and weight"
+else
+    echo "no tax at commisary"
+fi
+
 
 
 command substitution
