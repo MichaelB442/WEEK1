@@ -161,5 +161,6 @@ sorting passwd by GID grabbing 10th and using md5 on their directory
   echo $a | md5sum | cut -d' ' -f1
 
 if using tar, use -czf
+wc = word count -l for list count
 
 
