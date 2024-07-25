@@ -159,6 +159,12 @@ find files in directories sort them and get md5 of the 10th file
 sorting passwd by GID grabbing 10th and using md5 on their directory
   a=$(cat /etc/passwd | cut -d: -f4- | sort -n | head | tail -1 | awk -F: '{print $3}')
   echo $a | md5sum | cut -d' ' -f1
+counting lines of ls -l
+  ls -l /sum/sum | wc -l
+
+time one that made me angry
+  touch -t "$filedate"1730 $newfile
+
 
 if using tar, use -czf
 wc = word count -l for list count
