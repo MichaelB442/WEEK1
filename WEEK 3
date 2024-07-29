@@ -1,0 +1,100 @@
+links 
+  when to quote in powershell simple-talk
+  microsoft about_hash_tables(microsoft powershell website)
+  tutorialspoint.com/powershell/powershell_brackets.htm
+
+
+
+verb-noun
+
+get-command -verb get -- shows get commands
+get-command -noun process -- shows commands with process
+get-proccess -- shows prcesses
+get-help verb-noun (-examples) -- gets help for specified command (example shows an example within help page)
+                    -full -- shows full help page
+  get-help *log* -- shows logs of commands
+  get-help *event*
+  get-help get-process *online* -- pulls up webpage of command
+  get-childitem -path c:\windows -filter *.exe -recurse -name --  looks for executables
+  get-alias -definition get-childitem -- looks for alias associated with get-childitem
+  set-alias edit notepad.exe -- typing edit will open notepad
+  remove-item alias:edit -- removes the edit alias
+  (get-process).processname --  shows process list by names
+  get-process notepad -- shows only the notepad process
+  (get-process notepad).kill() -- kills notepad process
+  get-process | get-member -- members of get process
+  get-process | get-member -membertype properties -- properties of get-process
+
+shows running services
+  get-service | where-object {$_.status -eq "running"}
+  shows stopped service
+  return get-service | where-object -property status -eq 'stopped'
+
+function fruit-host {
+  write-host "Apple"
+  write-host "Orange"
+  write-host "Banana"
+  write-host "Pear"
+  }
+
+function fruit-output {
+  write-output "Apple"
+  write-output "Orange"
+  write-output "Banana"
+  write-output "Pear"
+  }
+
+fruit-host | sort -- will not sort with -host
+fruit-output | sort -- will sort with -output -- sends data down the line 
+
+both of these print 10
+  $x = 10
+  get-variable x
+  get-childitem variable:x
+
+declare multiple variables
+  $x, $y, $z = "1", "2", "3"
+
+see if it exists
+  test-path variable:x 
+
+remove variables
+  remove-variable x
+  del variable:x
+
+single quotes -- are literal
+double quotes -- allows variables within string
+
+reverse array
+  $revarray = -3..15
+  $reverse = $revarray[($revarray.length-1)..0]
+  $reverse
+
+  $revarray = -3..15
+  [array]::reverse($revarray)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
