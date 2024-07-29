@@ -1,3 +1,5 @@
+xfreerdp /u:student /v:10.50.32.144 -dynamic-resolution +glyph-cache +clipboard
+
 links 
   when to quote in powershell simple-talk
   microsoft about_hash_tables(microsoft powershell website)
@@ -73,15 +75,40 @@ reverse array
   $revarray = -3..15
   [array]::reverse($revarray)
 
+Hash tables
+  $employee1 = [ordered]@{}
+  $employee2 = [ordered]@{}
+  
+  $employee1.first = "Mary"
+  $employee1["last"] = "Hopper"
+  $employee1.ID = "001"
+  $employee1["job"] = "Software Developer"
 
+  $employee1
 
+  $employee2.first = "John"
+  $employee2["last"] = "Williams"
+  $employee2.ID = "002"
+  $employee2["job"] = "Web Developer"
 
+  $employee2
+  $employee1.Username = "mhopper001"
+  $employee2.Username = "jwilliams002"
+  
+  $employee3 = [ordered]@{}
+  $employee3.first = "bob"
+  $employee3.last = "marley"
+  $employee3.id = "20"
+  $employee3.username = "bmarley24"
+  $employee3.job = "accountant"
 
+idk wat this is
 
-
-
-
-
+foreach ($grp in (Get-LocalGroup).name){
+    write-host "`n$grp" -ForegroundColor magenta -BackgroundColor black
+    '========================================='
+    (Get-LocalGroupMember -Name $grp).name -replace("$env:computername\\",'')
+}
 
 
 
