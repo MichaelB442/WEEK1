@@ -1,4 +1,4 @@
-xfreerdp /u:student /v:10.50.32.144 -dynamic-resolution +glyph-cache +clipboard
+xfreerdp /u:student /v:10.50.32.44 -dynamic-resolution +glyph-cache +clipboard
 
 links 
   when to quote in powershell simple-talk
@@ -110,6 +110,52 @@ foreach ($grp in (Get-LocalGroup).name){
     (Get-LocalGroupMember -Name $grp).name -replace("$env:computername\\",'')
 }
 
+  DAY 2
+command substitution ((script blocks))
+  $myblock = {get-service | format-table name, status}
+
+  & $myblock
+
+      sorting and grouping
+this takes the directory and sorts by the size of the file
+  get-childitem | Sort-Object -property length -Descending (| group-object -extension) - extra part groups like items together
+
+  get-service | group-object status
+
+  get-childitem | group-object {$_.length -lt 1kb}
+
+equivelant of head
+  get-process | select-object -last 10
+
+prints just the names
+  get-process | select-object  -expandproperty name
+
+find items with names that contain microsoft
+  get-process | where-object {$_.company -like 'micro*'} | format-table name, description, company
+not powershell related
+  get-process | where-object {$_.company -notlike 'power*'} | format-table name, description, company
+
+  get-process | where-object processname -ne "Idle" | sort-object starttime | select-object -last 10 | format-table processname, starttime
+
+  1,2,3,4,4,4,4,2,2,2,3,3,1,1,5 | sort-object | get-unique ==== 1 2 3 4 5
+
+
+  ----
+  $array = 1,2,3,4,5,6,7
+  $sum = 0
+  $array | foreach-object {$sum += $_}
+  $sum
+  ----
+
+  $mytruck = new-object object
+  add-member -membertype noteproperty -name color -value white -inputobject $mytruck --
+  add-member -me noteproperty -in $mytruck -na make -value dodge     --
+  add-member -inputobject $mytruck noteproperty model "Ram" --
+  $mytruck | add-member noteproperty Cab doublecab                -- these lines all do the same thing, just differnt ways to set properties
+  
+  add-member -membertype ScriptMethod -inputobject $mytruck -name drive -value {"Going on a roadtrip."} -- adding script objects(methods)
+  add-member -inputobject $mytruck scriptmethod Accelerate {"Skinny pedal on the right."}
+  $mytruck | add-member scriptmethod Park {"Finding a spot is impossible."}
 
 
 
