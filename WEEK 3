@@ -141,10 +141,7 @@ not powershell related
 
 
   ----
-  $array = 1,2,3,4,5,6,7
-  $sum = 0
-  $array | foreach-object {$sum += $_}
-  $sum
+
   ----
 
   $mytruck = new-object object
@@ -156,6 +153,107 @@ not powershell related
   add-member -membertype ScriptMethod -inputobject $mytruck -name drive -value {"Going on a roadtrip."} -- adding script objects(methods)
   add-member -inputobject $mytruck scriptmethod Accelerate {"Skinny pedal on the right."}
   $mytruck | add-member scriptmethod Park {"Finding a spot is impossible."}
+
+      First if else
+              $x = 9
+              if ($x -gt 10){"$x is greater than 10"}
+              else {"$x is less than 10"}
+
+      Second if else
+              $x = 2
+              if ($x -eq 5) {
+              write-host "Bob"
+              }
+              elseif ($x -eq 4) {
+              write-host "Sue"
+              }
+              elseif ($x -eq 3) {
+              write-host "Jon"
+              }
+              elseif ($x -eq 2) {
+              write-host "Tom"
+              }
+              elseif ($x -gt 5) {
+              write-host "Mary"
+              }
+              elseif ($x -eq 1) {
+              write-host "Vectorrrr"
+              }
+              else {
+              write-host "Who"
+              }
+              elseif ($x -gt 5) {
+              write-host "Mary"
+              }
+              else {
+              write-host "Who"
+              }
+
+      FOREACH loops
+foreach-object is used in pipes
+foreach goes slower and isnt used in pipes
+              $nums =1,2,3,4,5
+              $nums | foreach-object{$_ * 2}
+            -----------------------
+              $list = 'a', 'b', 'c', 'd', 'e'
+              $list | foreach-object {$_.toupper()} makes them uppercase
+            -----------------------
+              $array = 1,2,3,4,5,6,7
+              $sum = 0
+              $array | foreach-object {$sum += $_}
+              $sum
+            -----------------------
+              get-process| select-object -first 10 | foreach-object {$_.name} | foreach-object {$_.toupper()}
+            -----------------------
+              foreach ($item in gci C:\ -recurse){$item.name} -- this breaks
+            -----------------------
+              $teams = "bop", "band kid", "boomers", "redbull", "raiders"
+              foreach($teams in $teams){"whatever $teams"}
+
+      WHILE loop
+              $var = ""
+              while ($var -ne "MUHROONS"){
+                  $var = read-host "wat is crayn eatin brach"
+              }
+            -----------------------
+              $num = 0
+              do {
+              write-host "$num BEERS"
+              $num++
+              }while ($num -le 10000000)
+            -----------------------
+              for($num =1; $num -le 3; $num++){$num}\
+            -----------------------
+              for $i =0; -le 255; $i++) {
+                write-host 192.168.0.$i
+              }
+            -----------------------
+              $num = 0 
+              while($num -lt 10){
+                  $num += 1
+                  if($num -eq 2) {
+                    continue
+                  }
+                  $num
+              }
+            ------------------------
+set-content -path .\example.txt -value "a string"
+get-content .\example,txt
+add-content .\example.txt -value "anotha one"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
