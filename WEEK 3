@@ -243,7 +243,16 @@ add-content .\example.txt -value "anotha one"
 
 
 
-
+                                                                              IDK IF THIS WORKS
+                                                                              __________________________________________
+                                                                              $x = '.\notepad', 'msedge', '.\mspaint'
+                                                                              $x | foreach-object{start $_}
+                                                                              $file = ".\procs1.txt"
+                                                                              foreach($x in $x){
+                                                                              get-process | where-object{$_.name -like $x} | 
+                                                                              foreach-object{add-content $file $_.id} }
+                                                                              stop-process -name msedge, mspaint, notepad
+                                                                              ___________________________________________
 
 
 
