@@ -8,6 +8,12 @@ links
 
 
 verb-noun
+jagged arrays exist -- might need to read abt
+
+[math]::sqrt(#) -- square root
+[math]::pow(6,2) -- power (6 to the power of 2 is 36)
+$matches
+$input
 
 get-command -verb get -- shows get commands
 get-command -noun process -- shows commands with process
@@ -118,7 +124,7 @@ command substitution ((script blocks))
 
       sorting and grouping
 this takes the directory and sorts by the size of the file
-  get-childitem | Sort-Object -property length -Descending (| group-object -extension) - extra part groups like items together
+  get-childitem | Sort-Object -property length -Descending -- (| group-object -extension) - extra part groups like items together
 
   get-service | group-object status
 
@@ -132,12 +138,19 @@ prints just the names
 
 find items with names that contain microsoft
   get-process | where-object {$_.company -like 'micro*'} | format-table name, description, company
+                                .####### can  be any of the areas (name, company, description, etc.)
+                                         -like -----case insensitive
+                                         -clike ----case sensitive
+                                         -match ----regex('^m.*$')
+
 not powershell related
   get-process | where-object {$_.company -notlike 'power*'} | format-table name, description, company
 
   get-process | where-object processname -ne "Idle" | sort-object starttime | select-object -last 10 | format-table processname, starttime
 
   1,2,3,4,4,4,4,2,2,2,3,3,1,1,5 | sort-object | get-unique ==== 1 2 3 4 5
+  (1,2,3,4,5 | measure-object -average).average --- prints just the average
+  ((1,2,3,4,5 | measure-object -average).average).gettype()
 
 
   ----
@@ -237,9 +250,44 @@ foreach goes slower and isnt used in pipes
                   $num
               }
             ------------------------
-set-content -path .\example.txt -value "a string"
-get-content .\example,txt
-add-content .\example.txt -value "anotha one"
+adds content to file
+              set-content -path .\example.txt -value "a string"
+              get-content .\example,txt
+              add-content .\example.txt -value "anotha one"
+
+                                    FUNCTIONS
+            ________________________________________________________________________
+              ####"elements provided on the pipeline"
+              function print-PSitem{
+                begin{} --optional
+                Process{foreach($i in $PSitem){$i}}
+                end{} --optional
+              }
+              ## running this command 1,2,3,4,5,6 | print-PSitem
+            _________________________________________________________________________
+              function Print-Item{
+                Process {foreach($i in $input){$i}}
+              }
+            _________________________________________________________________________
+              function Get-Sum{
+                Begin{$sum = 0}
+                Process{$sum += $_; $_}  (; $_) prints each number
+                End{$sum} -prints final
+              }
+            __________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
