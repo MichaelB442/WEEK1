@@ -167,6 +167,15 @@ not powershell related
   add-member -inputobject $mytruck scriptmethod Accelerate {"Skinny pedal on the right."}
   $mytruck | add-member scriptmethod Park {"Finding a spot is impossible."}
 
+
+'1.1.1.1'.split(".") makes it an array
+'1.1.1.1'.split(".")[0] grabs first one
+
+1, 2, 3, 4, 5, 6 -join ""
+
+
+
+
       First if else
               $x = 9
               if ($x -gt 10){"$x is greater than 10"}
@@ -274,7 +283,104 @@ adds content to file
                 Process{$sum += $_; $_}  (; $_) prints each number
                 End{$sum} -prints final
               }
-            __________________________________________________________________________
+            ________________________________________________________________________
+              function get-multisum([array]$array, [int]$nuh){
+                  Begin{$sum = 0}
+                  Process{
+                  foreach($num in $array){
+                  if($num -eq $nuh){
+                  continue
+                  }
+                  $sum += $num
+                  }
+                  }
+                  End{$sum}
+                }
+            ________________________________________________________________________
+function get-multisum([array]$array, [int]$nuh){
+    Begin{$sum = @()}
+    Process{
+    foreach($num in $array){
+    if($num -eq $nuh){
+    continue
+    }
+    $sum += $num
+    }
+    }
+    End{(  $sum | measure-object -sum).sum}
+  }
+_____________________________NEXT 2 DO THE SAME THING IN DIFERENT WAYS___________________________
+
+              function get-longestname{
+                  Begin{}
+                  Process{write-output ("Enter three names.")
+                  
+                  [string]$in = read-host -Prompt "Name 1"
+                  [array]$inner += $in
+                  [string]$in = read-host -Prompt "Name 2"
+                  [array]$inner += $in
+                  [string]$in = read-host -Prompt "Name 3"
+                  [array]$inner += $in
+                  }
+                  
+                  End{
+                  $list = $inner | sort -property Length -descending
+                  foreach($stun in $list){
+                  "$stun `: " + $stun.length
+                  }
+                }
+                }
+            ___________________________________________________________________
+              function get-longestt{
+                  begin{
+                      $count = 0
+                      $states = @()
+                      }
+                      Process{
+                          while($count -lt 3){
+                              $usr = read-host "enter a us state"
+                              $states += $usr
+                              $count += 1
+                              }
+                              
+                              
+                              }
+                              End{
+                              $list = $states | sort -property Length -descending
+                              foreach($state in $list){
+                              "$state `: " + $state.length
+                              }
+                              }
+                              }
+_____________________________________________________________________________________________________________
+              function get-netinfo{
+              $pattern = '.*?((\d{1,3}\.){3}\d{1,3})'
+              $netinfo = ipconfig
+              
+              $ip = $netinfo -match "IPV4$pattern" | foreach-object{if ($_ -match $pattern){$matches[1]}}
+              
+              $subnet = $netinfo -match "Subnet$pattern" | foreach-object{if ($_ -match $pattern){$matches[1]}}
+              
+              $gw = $netinfo -match "Gateway$pattern" | foreach-object{if ($_ -match $pattern){$matches[1]}}
+              
+              "IP : $ip `nSubnet : $subnet `nGateway : $gw "
+              }
+           _____________________________________________________________________________________________________           
+              fuction get-urlinfo{
+              $file = Get-Content .\example.txt
+              $regex =  '(www\.[a-zA-Z0-9\-\.]+\.(com|org|net))'
+              foreach ($line in $file){
+              if ($line -match $regex){
+              $matches[1]
+              }
+              }
+              }
+              
+              
+              
+
+
+
 
 
 
